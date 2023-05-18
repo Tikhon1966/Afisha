@@ -33,7 +33,7 @@ public class AfishaManagerTest {
     }
 
     @Test
-    public void shouldShowInverseLimitParametre() {
+    public void shouldShowInverseLimitParametreLess() {
         AfishaManager manager = new AfishaManager(2);
 
         manager.addFilm("Film 1");
@@ -44,5 +44,32 @@ public class AfishaManagerTest {
         String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
 
+    }
+
+    @Test
+    public void shouldShowInverseLimitParametreMore() {
+        AfishaManager manager = new AfishaManager(5);
+
+        manager.addFilm("Film 1");
+        manager.addFilm("Film 2");
+        manager.addFilm("Film 3");
+
+        String[] expected = {"Film 3", "Film 2", "Film 1"};
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldShowInverseLimitParametreEcually() {
+        AfishaManager manager = new AfishaManager(3);
+
+        manager.addFilm("Film 1");
+        manager.addFilm("Film 2");
+        manager.addFilm("Film 3");
+
+        String[] expected = {"Film 3", "Film 2", "Film 1"};
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
